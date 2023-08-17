@@ -11,11 +11,11 @@ const Navigation = () => (
     </div>
     <ul className="nav-item">
       <li>
-        <Link to="/bookstore-cms/">Books</Link>
+        <Link to="/">Books</Link>
       </li>
       <li>|</li>
       <li>
-        <Link to="/bookstore-cms/categories">Categories</Link>
+        <Link to="/categories">Categories</Link>
       </li>
     </ul>
   </nav>
