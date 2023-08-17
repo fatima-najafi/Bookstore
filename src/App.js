@@ -11,8 +11,8 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/bookstore-cms/" element={<Books />} />
-          <Route path="/bookstore-cms/categories" element={<Categories />} />
+          <Route path="/" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
         </Routes>
       </main>
     </>
