@@ -1,27 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './Buttton';
 
-const Book = ({ book, onDelete }) => {
-  const handleDelete = () => {
-    onDelete(book.id);
-  };
-
-  return (
-    <div>
-      <h3>{book.title}</h3>
-      <p>{book.author}</p>
-      <button type="button" onClick={handleDelete}>
-        Delete
-      </button>
-    </div>
-  );
-};
+const Book = ({ book, onDelete }) => (
+  <div>
+    <h3>{book.title}</h3>
+    <p>{book.author}</p>
+    <p>{book.category}</p>
+    <Button onClick={onDelete}>Delete</Button>
+  </div>
+);
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }).isRequired,
   onDelete: PropTypes.func.isRequired,
 };
