@@ -1,21 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navigation.css';
 
 const Navigation = () => (
-  <nav className="navbar">
-    <div>
-      <Link to="/bookstore-cms/">
-        <h1>Bookstore CMS</h1>
-      </Link>
+  <nav className="nav-bar">
+    <div className="nav-brand">
+      <Link to="/bookstore-cms/"><h1>Bookstore CMS</h1></Link>
     </div>
-    <ul className="nav-item">
+    <ul className="nav-links">
       <li>
-        <Link to="/">Books</Link>
+        <Link className="nav-link" to="/bookstore-cms/">BOOKS</Link>
       </li>
       <li>|</li>
       <li>
-        <Link to="/categories">Categories</Link>
+        <Link className="nav-link" to="/bookstore-cms/categories">CATEGORIES</Link>
       </li>
     </ul>
   </nav>

@@ -1,3 +1,4 @@
+// BookForm.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
@@ -9,33 +10,42 @@ const BookForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!title || !author) {
+      // Check if any field is empty
+      return;
+    }
     const newBook = {
-      id: Date.now().toString(),
+      item_id: Date.now().toString(),
       title,
       author,
-      category: 'Fiction',
+      category: 'Non-Fiction',
     };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
+    dispatch(addBook(newBook)).then(() => {
+      setTitle('');
+      setAuthor('');
+    });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>ADD NEW BOOK</h2>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-      <button type="submit">ADD BOOK</button>
+      <fieldset>
+        <legend><h2>ADD NEW BOOK</h2></legend>
+        <input
+          className="title"
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          className="author"
+          type="text"
+          placeholder="Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+        <button className="submit-btn" type="submit">ADD BOOK</button>
+      </fieldset>
     </form>
   );
 };
