@@ -29,9 +29,7 @@ const BookForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <fieldset>
-        <legend>
-          <h2>ADD NEW BOOK</h2>
-        </legend>
+        <legend><h2>ADD NEW BOOK</h2></legend>
         <input
           className="title"
           type="text"
@@ -46,9 +44,7 @@ const BookForm = () => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
-        <button className="submit-btn" type="submit">
-          ADD BOOK
-        </button>
+        <button className="submit-btn" type="submit">ADD BOOK</button>
       </fieldset>
     </form>
   );
