@@ -2,20 +2,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BOOKS_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/HKbvuAMzbyqByo1LsZlm/books';
+const BOOKS_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GCAJlU4yfvUviFg1ztAE/books';
+
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   const response = await axios.get(BOOKS_URL);
-
   return response.data;
 });
 
 export const addBook = createAsyncThunk('books/addBook', async (bookData) => {
   const res = JSON.stringify(bookData);
-  const response = await axios.post(BOOKS_URL, res, {
-    headers: { 'Content-Type': 'application/json' },
-  });
+  const response = await axios.post(BOOKS_URL, res, { headers: { 'Content-Type': 'application/json' } });
   return { ...bookData, id: response.data.item_id };
 });
+
 export const removeBook = createAsyncThunk('books/removeBook', async (id) => {
   await axios.delete(`${BOOKS_URL}/${id}`);
   return id;
