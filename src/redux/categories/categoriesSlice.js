@@ -9,6 +9,7 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
+    // No additional reducers for categories slice
   },
 });
 
